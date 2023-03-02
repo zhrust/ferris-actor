@@ -1,9 +1,16 @@
-use std::env;
+//use ferris_actor::VERSION;
+//use std::env;
+//#[cfg(not(debug_assertions))]
+//include!(concat!(env!("SNAP_OUT_DIR"), "/version.rs"));
+////include!(concat!(env!("OUT_DIR"), "/version.rs"));
+//#[cfg(debug_assertions)]
+//pub const VERSION: &str = "development";
 
 use handlebars::Handlebars;
 use serde_json::json;
 
 use crate::act::actor::*;
+
 
 pub fn act() {
     snap()
@@ -96,17 +103,31 @@ fn snap() {
         eprintln!("渲染模板失败：未知错误");
         String::new()
     });
-    let version = env::var("CARGO_PKG_VERSION").unwrap();
+    //let version = env::var("CARGO_PKG_VERSION").unwrap();
+    //let version = get_version_from_cargo_toml();
     println!("{}" 
         , format!(
-        "```\n{}\n...act by ferris-actor v{}\n```\n"
+        //"```\n{}\n...act by ferris-actor v{}\n```\n"
+        "```\n{}\n...act by ferris-actor\n```\n"
             , ferris 
-            , version)
+        )
+        //    , VERSION)
     );
 
 }
 
+
+
 /* 
+
+
+fn get_version_from_cargo_toml() -> Option<&str> {
+    let cargo_toml = include_str!("Cargo.toml");
+    let toml: toml::Value = toml::from_str(cargo_toml).ok()?;
+    toml.get("package")?.get("version")?.as_str()
+    // 这里使用从 Cargo.toml 中读取的版本号进行后续处理
+}
+
 PS: got author from Cargo.toml
 cargo metadata --format-version 1 | jq -r '.packages[0].authors[0]'
 

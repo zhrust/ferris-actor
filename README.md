@@ -2,6 +2,9 @@
 > ASCII-art Animation and snap as ASCII-art logo for Ferris
 > 蟹老板终端动画片和随机 pose
 
+![ferris-actor](https://ipic.zoomquiet.top/2023-03-02-230302-ferris-actor.gif)
+
+.. effect animation snap under in [Swordfish90/cool-retro-term: A good looking terminal emulator which mimics the old cathode display...](https://github.com/Swordfish90/cool-retro-term)
 
 ------
 ## Command-line options
