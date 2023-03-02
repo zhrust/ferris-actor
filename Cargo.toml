@@ -5,6 +5,7 @@ edition = "2021"
 
 authors = ["Zoom.Quiet <zoomquiet+rs@gmail.com>"]
 license = "BSD 2-Clause License"
+license-file = "LICENSE"
 description = "a CLI tool for show and snap ASCII-art animation for Ferris"
 
 readme = "README.md"
