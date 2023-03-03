@@ -1,6 +1,6 @@
 [package]
 name = "ferris-actor"
-version = "0.2.4"
+version = "0.2.5"
 #BUILD_VERSION = "230303.18.42"
 edition = "2021"
 
