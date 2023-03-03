@@ -111,7 +111,7 @@ fn snap() {
 
     println!("{}" 
         , format!(
-        "```\n{}\n...act by ferris-actor v{}\n```\n"
+        "```\n{}\n...act by ferris-actor {}\n```\n"
         //"```\n{}\n...act by ferris-actor\n```\n"
             , ferris 
             , _ver

@@ -1,8 +1,7 @@
 [package]
 name = "ferris-actor"
-version = "0.2.3"
+version = "0.2.4"
 #BUILD_VERSION = "230303.18.42"
-
 edition = "2021"
 
 authors = ["Zoom.Quiet <zoomquiet+rs@gmail.com>"]
@@ -11,14 +10,14 @@ license-file = "LICENSE"
 description = "a CLI tool for show and snap ASCII-art animation for Ferris"
 
 readme = "README.md"
-
 homepage = "https://rs.101.so/dev/cli_ferris_art.html"
 repository = "https://github.com/zhrust/ferris-actor"
+
 keywords = ["cli", "Ferris", "ASCII-art", "Animation"]
 categories = ["command-line-utilities"]
 
-[package.metadata]
-BUILD_VERSION = "230303.18.42"
+#[package.metadata]
+#BUILD_VERSION = "230303.18.42"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -26,8 +25,6 @@ BUILD_VERSION = "230303.18.42"
 log = "0.4"
 tracing = "0.1"
 clia-tracing-config = "0.2"
-chrono = "0.4.23"
-#chrono = { version = "0.4", features = ["serde"] }
 
 toml = "0.7.2"
 termion = "2.0.1"
@@ -49,6 +46,8 @@ features = ["derive"]
 [build-dependencies]
 cargo_metadata = "0.15.3"
 #path_abs = "0.5.1"
+chrono = "0.4.23"
+#chrono = { version = "0.4", features = ["serde"] }
 
 #assert_cmd = "2"
 #predicates = "2"
