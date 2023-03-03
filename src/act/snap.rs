@@ -119,7 +119,6 @@ fn snap() {
         //    , VERSION)
     );
 
-    println!("Version: 0.2.2");
 
 }
 
