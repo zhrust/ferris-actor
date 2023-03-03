@@ -1,23 +1,26 @@
-//use ferris_actor::VERSION;
-//use std::env;
-//#[cfg(not(debug_assertions))]
-//include!(concat!(env!("SNAP_OUT_DIR"), "/version.rs"));
-////include!(concat!(env!("OUT_DIR"), "/version.rs"));
-//#[cfg(debug_assertions)]
-//pub const VERSION: &str = "development";
-
 use handlebars::Handlebars;
 use serde_json::json;
 
 use crate::act::actor::*;
-
+use crate::act::version;
 
 pub fn act() {
+    
     snap()
 }
 
 fn snap() {
+    let mut _ver = version::get_version();
+    //log::info!("_ver:\n\t {}", _ver);
     let mut tpl = Handlebars::new();
+    //// 初始化日志记录器
+    //Builder::from_env(Env::default().default_filter_or("info")).init();
+    //// 创建一个带有自定义日志级别的 Handlebars 对象
+    //let mut tpl = Handlebars::with_logging(|level, message| {
+    //    if level <= log::Level::Info {
+    //        println!("Handlebars log: {}: {}", level, message);
+    //    }
+    //});
 
     let sp = _rng_pick(&PRE).unwrap();
     //let mut rng = rand::thread_rng();
@@ -103,46 +106,16 @@ fn snap() {
         eprintln!("渲染模板失败：未知错误");
         String::new()
     });
-    //let version = env::var("CARGO_PKG_VERSION").unwrap();
-    //let version = get_version_from_cargo_toml();
+
     println!("{}" 
         , format!(
-        //"```\n{}\n...act by ferris-actor v{}\n```\n"
-        "```\n{}\n...act by ferris-actor\n```\n"
+        "```\n{}\n...act by ferris-actor v{}\n```\n"
+        //"```\n{}\n...act by ferris-actor\n```\n"
             , ferris 
+            , _ver
         )
         //    , VERSION)
     );
 
 }
 
-
-
-/* 
-
-
-fn get_version_from_cargo_toml() -> Option<&str> {
-    let cargo_toml = include_str!("Cargo.toml");
-    let toml: toml::Value = toml::from_str(cargo_toml).ok()?;
-    toml.get("package")?.get("version")?.as_str()
-    // 这里使用从 Cargo.toml 中读取的版本号进行后续处理
-}
-
-PS: got author from Cargo.toml
-cargo metadata --format-version 1 | jq -r '.packages[0].authors[0]'
-
-or ~>
-
-use std::env;
-use serde_json::Value;
-
-fn main() {
-    let metadata = env::var("CARGO_MANIFEST_DIR").unwrap() + "/Cargo.toml";
-    let contents = std::fs::read_to_string(metadata).unwrap();
-    let value: Value = toml::from_str(&contents).unwrap();
-    let authors = value["package"]["authors"].as_array().unwrap();
-    let first_author = authors[0].as_str().unwrap();
-    println!("First author: {}", first_author);
-}
-
-*/

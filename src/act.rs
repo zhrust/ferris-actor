@@ -4,6 +4,8 @@ use clap::Parser;
 pub mod go;
 pub mod actor;
 pub mod snap;
+pub mod version;
+//mod misc;
 
 #[derive(Debug, Parser)]
 #[command(about,long_about = None)]
@@ -26,7 +28,7 @@ pub enum Commands {
 
 pub fn show() {
     let _guard = clia_tracing_config::build()
-        .filter_level("debug") //fatal,error,warn,info,debug
+        .filter_level("info") //fatal,error,warn,info,debug
         .with_ansi(true)
         .to_stdout(false)
         .directory("./log")
