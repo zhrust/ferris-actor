@@ -10,7 +10,9 @@ pub fn act() {
 }
 
 fn snap() {
-    let mut _ver = version::get_version();
+    
+    //let mut _ver = version::get_version();
+    let mut _ver = version::VERSION;
     //log::info!("_ver:\n\t {}", _ver);
     let mut tpl = Handlebars::new();
     //// 初始化日志记录器
@@ -116,6 +118,8 @@ fn snap() {
         )
         //    , VERSION)
     );
+
+    println!("Version: 0.2.2");
 
 }
 
